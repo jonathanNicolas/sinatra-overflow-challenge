@@ -5,5 +5,6 @@ class CreateVotes < ActiveRecord::Migration
       t.references :interaction, polymorphic: true, index: true
 
       t.timestamps(null:false)
+    end
   end
 end
