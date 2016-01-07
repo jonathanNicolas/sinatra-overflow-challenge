@@ -1,14 +1,86 @@
 require 'faker'
 
-User.delete_all
+# create 20 dummy users
+users = 20.times.map do
+  User.create!( :first_name => Faker::Name.first_name,
+                :last_name  => Faker::Name.last_name,
+                :email      => Faker::Internet.email,
+                :password   => BCrypt::Password.create("ham") )
+end
 
-# create 100 dummy users
-# users = 100.times.map do
-#   User.create!( :first_name => Faker::Name.first_name,
-#                 :last_name  => Faker::Name.last_name,
-#                 :email      => Faker::Internet.email,
-#                 :password   => 'password' )
-# end
+# create 2 questions for each user
+2.times do
+  users.each do |user|
+    user.questions.create!( :title => Faker::Lorem.sentence,
+                            :text => Faker::Lorem.paragraphs(1)
+      )
+  end
+end
 
-# create test user
-User.create!(first_name: "Test", last_name: "User", email: "test@test.com", password: "password")
+# create answers
+question_num = 1
+users.each do |user|
+  user.answers.create!( :text => Faker::Lorem.paragraphs(1),
+                          :question_id => question_num
+     )
+  question_num += 1
+end
+
+question_num = 1
+users.reverse!.each do |user|
+  user.answers.create!( :text => Faker::Lorem.paragraphs(1),
+                          :question_id => question_num
+     )
+  question_num += 1
+end
+
+
+# create COMMENTS
+response_num = 1
+users.each do |user|
+  user.comments.create!( :text => Faker::Lorem.paragraphs(1),
+                         :response_type => "Question",
+                         :response_id => response_num
+   )
+  response_num += 1
+end
+
+response_num = 1
+users.reverse!.each do |user|
+  user.comments.create!( :text => Faker::Lorem.paragraphs(1),
+                         :response_type => "Answer",
+                         :response_id => response_num
+   )
+  response_num += 1
+end
+
+# create VOTES
+interaction_num = 1
+users.each do |user|
+  user.votes.create!(
+                      :interaction_type => "Question",
+                      :interaction_id => interaction_num
+   )
+  interaction_num += 1
+end
+
+interaction_num = 1
+users.reverse!.each do |user|
+  user.votes.create!(
+                      :interaction_type => "Answer",
+                      :interaction_id => interaction_num
+   )
+  interaction_num += 1
+end
+
+interaction_num = 1
+users.each do |user|
+  user.votes.create!(
+                      :interaction_type => "Comment",
+                      :interaction_id => interaction_num
+   )
+  interaction_num += 1
+end
+
+
+
