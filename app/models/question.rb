@@ -7,6 +7,6 @@ class Question < ActiveRecord::Base
 
   validates :user_id, presence: true
   validates :title, presence: true
-  validates :text
+  validates :text, presence: true
 
 end
