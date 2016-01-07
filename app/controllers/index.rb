@@ -1,6 +1,5 @@
 get '/' do
-
-  erb :index
+  redirect '/questions'
 end
 
 get '/secret' do
