@@ -1,12 +1,16 @@
 <div class="container">
-
   <br>
-
   <% @questions.each do |question| %>
+    <% time_since = (question.time_since_creation / 24).to_s %>
+    <% if time_since.to_i > 0 %>
+      <% time_since += " day" if time_since.to_i == 1 %>
+      <% time_since += " days" if time_since.to_i > 1 %>
+    <% else %>
+      <% time_since = question.time_since_creation.to_s + " hours" %>
+    <% end %>
+
   <div class="question-summary">
-
     <div class="count-container">
-
       <div class="count-square">
         <h3><%= question.vote_total %></h3>
         <h5>votes</h5>
@@ -16,18 +20,8 @@
         <h5>answers</h5>
       </div>
   </div>
-  <h2><a href="/questions/<%= question.id %>"><%=question.title%></a></h2>
-  <h3 class="created_by_tag"><%=question.created_at%> by <a href="/users/<%= @user_ids[question.id] %>"><%= @usernames[question.id] %></a></h3>
-
+  <h2><a href="/questions/<%= question.id %>"><%= question.title %></a></h2>
+  <h3 class="created_by_tag"><%= time_since %> ago by <a href="/users/<%= @user_ids[question.id] %>"><%= @usernames[question.id] %></a></h3>
 </div>
-
-
-
-
-
 <% end %>
 </div>
-
-
-
-
