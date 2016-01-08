@@ -12,7 +12,7 @@ end
 
   users.each do |user|
     user.questions.create!( :title => Faker::Lorem.sentence,
-                            :text => Faker::Lorem.paragraphs(1)
+                            :text => Faker::Lorem.paragraphs(1).first
       )
   end
 
@@ -20,7 +20,7 @@ end
 # create answers
 question_num = 1
 users.each do |user|
-  user.answers.create!( :text => Faker::Lorem.paragraphs(1),
+  user.answers.create!( :text => Faker::Lorem.paragraphs(1).first,
                           :question_id => question_num
      )
   question_num += 1
@@ -28,7 +28,7 @@ end
 
 question_num = 1
 users.reverse!.each do |user|
-  user.answers.create!( :text => Faker::Lorem.paragraphs(1),
+  user.answers.create!( :text => Faker::Lorem.paragraphs(1).first,
                           :question_id => question_num
      )
   question_num += 1
@@ -38,7 +38,7 @@ end
 # create COMMENTS
 response_num = 1
 users.each do |user|
-  user.comments.create!( :text => Faker::Lorem.paragraphs(1),
+  user.comments.create!( :text => Faker::Lorem.paragraphs(1).first,
                          :response_type => "Question",
                          :response_id => response_num
    )
@@ -47,7 +47,7 @@ end
 
 response_num = 1
 users.reverse!.each do |user|
-  user.comments.create!( :text => Faker::Lorem.paragraphs(1),
+  user.comments.create!( :text => Faker::Lorem.paragraphs(1).first,
                          :response_type => "Answer",
                          :response_id => response_num
    )

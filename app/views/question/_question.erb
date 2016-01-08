@@ -5,7 +5,7 @@
     <a href="/questions/<%=@question.id%>/downvote"><i class="fa fa-3x fa-caret-down vote-container-items"></i></a>
   </div>
   <div class="text-container">
-    <h3><%= @question.text[2..-3] %></h3>
+    <h3><%= @question.text %></h3>
   </div>
   <div class="created-by-container">
     <h4>asked <%= @question.time_since_creation%> ago<br>
