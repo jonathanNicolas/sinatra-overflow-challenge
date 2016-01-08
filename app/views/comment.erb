@@ -1,13 +1,9 @@
-<% response_id_string = if @question %>
-<% @question.id %>
+<% if @question %>
+  <% response_id_string = @question.id %>
+  <% response_type_string = @question.class %>
 <% elsif @answer %>
-<% @answer.id %>
-<% end %>
-
-<% response_type_string = if @question %>
-<% @question.class %>
-<% elsif @answer %>
-<% @answer.class %>
+  <% response_id_string = @answer.id %>
+  <% response_type_string = @answer.class %>
 <% end %>
 
 <div class="container">
