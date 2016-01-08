@@ -21,5 +21,5 @@ end
 
 get '/logout' do
   session.delete(:user_id)
-  redirect '/login'
+  redirect '/'
 end
