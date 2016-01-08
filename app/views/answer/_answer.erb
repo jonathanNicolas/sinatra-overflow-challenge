@@ -1,0 +1,17 @@
+<div class="question-container answer-container">
+  <div class="vote-container answer-vote-container">
+    <a href="/questions/<%=@question.id%>/answers/<%=@answer.id%>/upvote"><i class="fa fa-3x fa-caret-up vote-container-items anti-margin"></i></a>
+    <h4 class="vote-container-items vote-count"><%=@answer.votes.count%><h4>
+    <a href="/questions/<%=@question.id%>/answers/<%=@answer.id%>/downvote"><i class="fa fa-3x fa-caret-down vote-container-items"></i></a>
+  </div>
+  <div class="text-container">
+    <h3><%= @answer.text[2..-3] %></h3>
+  </div>
+  <div class="created-by-container answer-created-by-container">
+    <h4>answered <%=@answer.created_at%><br>
+      <a href="#"><%=@answer.user.full_name%></a></h4>
+  </div>
+
+<%= erb :"comment/_comment"%>
+<h3 class="add-comment"><a href="#">add a comment<a></h3>
+</div>
