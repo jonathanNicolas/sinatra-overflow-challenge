@@ -284,13 +284,24 @@ h3.created_by_tag a {
 
 /*END OF COMMENT CSS*/
 
+  header {
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-family: 'Roboto';
+    font-size: 2em;
+  }
 
+  header nav {
+  }
 
+  header nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
 
-
-
-
-
-
-
-
+  header nav li {
+    display: inline-block;
+  }
