@@ -68,6 +68,37 @@ get '/questions/:question_id' do
   @question_user = @question.user
   @question_comments = @question.comments
   @question_answers = @question.answers
-  @question_vote_count = @question.votes.count
-  "This will eventually be the individual question view."
+  erb :"question/show"
+end
+
+get '/questions/:question_id/:vote_type' do
+  @question = Question.find(params[:question_id])
+  if params[:vote_type] == "upvote"
+    if @question.votes.create( user_id: session[:user_id], is_upvote: true, interaction_id: params[:question_id], interaction_type: "Question" )
+      @question.vote_total += 1
+      @question.save
+    end
+  elsif params[:vote_type] == "downvote"
+    if @question.votes.create( user_id: session[:user_id], is_upvote: true, interaction_id: params[:question_id], interaction_type: "Question" )
+      @question.vote_total -= 1
+      @question.save
+    end
+  end
+  redirect "/questions/#{@question.id}"
+end
+
+get '/questions/:question_id/answers/:answer_id/:vote_type' do
+   @answer = Answer.find(params[:answer_id])
+  if params[:vote_type] == "upvote"
+    if @answer.votes.create( user_id: session[:user_id], is_upvote: true, interaction_id: params[:answer_id], interaction_type: "Answer" )
+      @answer.vote_total += 1
+      @answer.save
+    end
+  elsif params[:vote_type] == "downvote"
+    if @answer.votes.create( user_id: session[:user_id], is_upvote: true, interaction_id: params[:answer_id], interaction_type: "Answer" )
+      @answer.vote_total -= 1
+      @answer.save
+    end
+  end
+  redirect "/questions/#{params[:question_id]}"
 end

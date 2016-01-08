@@ -1,0 +1,9 @@
+<div class="container">
+  <% @comments = @question.comments %>
+  <%= erb :"question/_question" %>
+  <% @question_answers.each do |answer| %>
+    <% @answer = answer %>
+    <% @comments = @answer.comments %>
+    <%= erb :"answer/_answer" %>
+  <% end %>
+</div>
