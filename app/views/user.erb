@@ -17,5 +17,19 @@
     <% @viewing_user_questions.each do |question| %>
       <li><a href="/questions/<%= question.id %>"><%= question.title %></a></li>
     <% end %>
-  </ul>
+    </ul>
+    <br>
+    <h3>Answers:</h3>
+    <ul>
+    <% @viewing_user_answers.each do |answer| %>
+      <li><a href="/questions/<%= answer.question_id %>"><%= answer.text.slice(0...40) %>...</a></li>
+    <% end %>
+    </ul>
+    <br>
+    <h3>Comments:</h3>
+    <ul>
+    <% @viewing_user_comments.each do |comment| %>
+      <li><a href="/questions/<%= comment.response_id %>"><%= comment.text.slice(0..40) %>...</a></li>
+    <% end %>
+    </ul>
 </div>

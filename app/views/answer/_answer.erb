@@ -8,8 +8,8 @@
     <h3><%= @answer.text[2..-3] %></h3>
   </div>
   <div class="created-by-container answer-created-by-container">
-    <h4>answered <%=@answer.created_at%><br>
-      <a href="#"><%=@answer.user.full_name%></a></h4>
+    <h4>answered <%=@answer.time_since_creation%> ago<br>
+      <a href="/users/<%= @answer.user.id %>"><%=@answer.user.full_name%></a></h4>
   </div>
 
 <%= erb :"comment/_comment"%>
