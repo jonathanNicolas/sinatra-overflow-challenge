@@ -62,5 +62,4 @@ get '/questions/:question_id' do
   @question_comments = @question.comments
   @question_answers = @question.answers
   @question_vote_count = @question.votes.count
-  erb :"question/_question"
 end
