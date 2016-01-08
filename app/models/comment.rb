@@ -7,7 +7,7 @@ class Comment < ActiveRecord::Base
 
   def time_since_creation
     hours_since_creation = ((Time.now - created_at) / 3600).round
-    return "less than an hour ago" if hours_since_creation == 0
+    return "less than an hour" if hours_since_creation == 0
     time_since = (hours_since_creation / 24).to_s
     if time_since.to_i > 0
       time_since += " day" if time_since.to_i == 1
