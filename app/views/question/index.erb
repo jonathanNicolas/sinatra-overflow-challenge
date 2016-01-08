@@ -1,0 +1,32 @@
+<div class="container">
+  <br>
+
+  <% @questions.each do |question| %>
+  <div class="question-summary">
+
+    <div class="count-container">
+
+      <div class="count-square">
+        <h3><%= question.vote_total %></h3>
+        <h5>votes</h5>
+      </div>
+      <div class="count-square">
+        <h3><%= @num_ans[question.id] %></h3>
+        <h5>answers</h5>
+      </div>
+  </div>
+  <h2><%=question.title%></h2>
+  <h3 class="created_by_tag"><%=question.created_at%> by <a href="#"><%=@usernames[question.id]%></a></h3>
+
+</div>
+
+
+
+
+
+<% end %>
+</div>
+
+
+
+

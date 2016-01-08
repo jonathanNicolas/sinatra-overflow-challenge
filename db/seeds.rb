@@ -8,14 +8,14 @@ users = 20.times.map do
                 :password   => BCrypt::Password.create("ham") )
 end
 
-# create 2 questions for each user
-2.times do
+# create 1 question for each user
+
   users.each do |user|
     user.questions.create!( :title => Faker::Lorem.sentence,
                             :text => Faker::Lorem.paragraphs(1)
       )
   end
-end
+
 
 # create answers
 question_num = 1
@@ -59,8 +59,12 @@ interaction_num = 1
 users.each do |user|
   user.votes.create!(
                       :interaction_type => "Question",
-                      :interaction_id => interaction_num
+                      :interaction_id => interaction_num,
+                      :is_upvote => true
    )
+  question = Question.find(interaction_num)
+  question.vote_total += 1
+  question.save!
   interaction_num += 1
 end
 
@@ -68,8 +72,12 @@ interaction_num = 1
 users.reverse!.each do |user|
   user.votes.create!(
                       :interaction_type => "Answer",
-                      :interaction_id => interaction_num
+                      :interaction_id => interaction_num,
+                      :is_upvote => true
    )
+  answer = Answer.find(interaction_num)
+  answer.vote_total += 1
+  answer.save!
   interaction_num += 1
 end
 
@@ -77,8 +85,12 @@ interaction_num = 1
 users.each do |user|
   user.votes.create!(
                       :interaction_type => "Comment",
-                      :interaction_id => interaction_num
+                      :interaction_id => interaction_num,
+                      :is_upvote => true
    )
+  comment = Comment.find(interaction_num)
+  comment.vote_total += 1
+  comment.save!
   interaction_num += 1
 end
 

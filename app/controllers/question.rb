@@ -5,8 +5,12 @@ get '/questions' do
   @questions.each do |question|
     @num_ans[question.id] = question.answers.count
   end
-  # erb :'question/index'
-  erb :index
+  @usernames = {}
+  @questions.each do |question|
+    @usernames[question.id] = User.find(question.user_id).full_name
+  end
+
+  erb :'question/index'
 end
 
 # routes related to creating a new question
