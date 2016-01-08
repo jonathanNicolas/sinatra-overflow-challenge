@@ -2,6 +2,7 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  margin: 0;
 }
 
 .container {
@@ -160,6 +161,63 @@ h3.created_by_tag a {
 }
 
 /*END OF HOMEPAGE CSS*/
+
+/*QUESTION CSS*/
+.question-container {
+  width: 100%;
+  position: relative;
+}
+
+.text-container {
+  margin-left: 50px;
+  padding-bottom: 60px;
+}
+.created-by-container {
+  width: 187px;
+  height: 56px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  background-color: rgb(190, 223, 235);
+  padding: 7px;
+}
+
+.created-by-container h4 {
+  font-weight: 200;
+  font-size: 12px;
+}
+
+.vote-container {
+  width: 46px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.vote-container-items {
+  float: left;
+  clear:both;
+  color: rgb(119, 119, 119);
+}
+
+.vote-count {
+  font-size: 20px;
+  color: rgb(119, 119, 119);
+  font-weight: 200;
+  margin: 0;
+  padding-left: 8px;
+}
+
+.anti-margin {
+  margin-top: -12px;
+}
+
+
+
+/*END OF QUESTION CSS*/
+
+
+
 
 
 

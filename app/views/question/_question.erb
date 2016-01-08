@@ -1,0 +1,19 @@
+<div class="container">
+
+<div class="question-container">
+  <div class="vote-container">
+    <i class="fa fa-3x fa-caret-up vote-container-items anti-margin"></i>
+    <h4 class="vote-container-items vote-count"><%=@question_vote_count%><h4>
+    <i class="fa fa-3x fa-caret-down vote-container-items"></i>
+  </div>
+  <div class="text-container">
+    <h3><%= @question.text[2..-3] %></h3>
+  </div>
+  <div class="created-by-container">
+    <h4>asked <%= @question.created_at%><br>
+      <a href="#"><%=@question_user.full_name%></a></h4>
+  </div>
+</div>
+
+
+</div>
