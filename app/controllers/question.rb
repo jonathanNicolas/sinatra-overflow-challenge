@@ -34,6 +34,7 @@ end
 # routes related to posting a new answer
 get '/questions/:question_id/answers/new' do
   if session[:user_id]
+    @question = Question.find(params[:question_id])
     erb :"answer/new"
   else
     @error = "You must login to post an answer."
@@ -42,7 +43,8 @@ get '/questions/:question_id/answers/new' do
 end
 
 post '/questions/:question_id/answers/new' do
-  Answer.create(user_id: session[:user_id], question: params[:question_id], text: params[:text])
+  question = Question.find(params[:question_id])
+  Answer.create(user_id: session[:user_id], question: question, text: params[:text])
   redirect "/questions/#{params[:question_id]}"
 end
 
