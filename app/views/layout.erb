@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="/css/normalize.css?app=skills">
-  <link rel="stylesheet" href="/css/application.css?app=skills">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/application.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
@@ -10,7 +11,7 @@
   <title>DBC Overflow</title>
 </head>
 <nav>
-  <center><br><a href="/">Home</a> | <a href="/register">Register</a> | <a href="/login">Login</a> | <a href="/logout">Logout</a> | <a href="#">Ask Question</a></center>
+  <center><br><%= erb :_nav %></center>
 </nav>
 <body>
   <%= yield %>

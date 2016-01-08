@@ -1,0 +1,5 @@
+<% if session[:user_id] %>
+  <a href="/">Home</a> | <a href="/users/<%= session[:user_id] %>">Profile</a> | <a href="/questions/new">Ask Question</a> | <a href="/logout">Logout</a>
+<% else %>
+  <a href="/">Home</a> | <a href="/register">Register</a> | <a href="/login" class="fa fa-sign-in">Login</a>
+<% end %>
