@@ -93,6 +93,3 @@ users.each do |user|
   comment.save!
   interaction_num += 1
 end
-
-
-

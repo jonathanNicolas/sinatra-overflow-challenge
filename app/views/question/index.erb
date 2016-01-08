@@ -15,8 +15,8 @@
         <h5>answers</h5>
       </div>
   </div>
-  <h2><%=question.title%></h2>
-  <h3 class="created_by_tag"><%=question.created_at%> by <a href="#"><%=@usernames[question.id]%></a></h3>
+  <h2><a href="/questions/<%= question.id %>"><%=question.title%></a></h2>
+  <h3 class="created_by_tag"><%=question.created_at%> by <a href="/users/<%= @user_ids[question.id] %>"><%= @usernames[question.id] %></a></h3>
 
 </div>
 
