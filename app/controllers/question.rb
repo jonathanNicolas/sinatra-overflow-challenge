@@ -41,6 +41,20 @@ post '/questions/:question_id/answers/new' do
   redirect "/questions/#{params[:question_id]}"''
 end
 
+# routes related to posting a comment to a question
+get '/questions/:question_id/comments/new' do
+end
+
+post '/questions/:question_id/comments/new' do
+end
+
+# routes related to posting a comment to an answer
+get '/questions/:question_id/answers/:answer_id/comments/new' do
+end
+
+post '/questions/:question_id/answers/:answer_id/comments/new' do
+end
+
 # route to show an individual question page
 get '/questions/:question_id' do
   @question = Question.find(params[:question_id])
