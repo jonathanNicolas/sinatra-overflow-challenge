@@ -8,5 +8,6 @@ class Question < ActiveRecord::Base
   validates :user_id, presence: true
   validates :title, presence: true
   validates :text, presence: true
+  validates :vote_total, presence: true
 
 end

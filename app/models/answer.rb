@@ -6,5 +6,6 @@ class Answer < ActiveRecord::Base
   has_many :votes, as: :interaction
 
   validates :text, presence: true
+  validates :vote_total, presence: true
 
 end
