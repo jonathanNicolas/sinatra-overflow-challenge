@@ -10,7 +10,7 @@
     <h3><%= @answer.text %></h3>
   </div>
   <div class="created-by-container answer-created-by-container">
-    <h4>answered <%=@answer.time_since_creation%> ago<br>
+    <h4>answered <%=@answer.time_since_creation%> ago</h4><h4>
       <a href="/users/<%= @answer.user.id %>"><%=@answer.user.full_name%></a></h4>
   </div>
 
