@@ -1,9 +1,11 @@
 <div class="question-container answer-container">
   <div class="vote-container answer-vote-container">
-    <a href="/questions/<%=@question.id%>/answers/<%=@answer.id%>/upvote"><i class="fa fa-3x fa-caret-up vote-container-items anti-margin"></i></a>
-    <h4 class="vote-container-items vote-count"><%=@answer.votes.count%><h4>
-    <a href="/questions/<%=@question.id%>/answers/<%=@answer.id%>/downvote"><i class="fa fa-3x fa-caret-down vote-container-items"></i></a>
+    <a href="/questions/<%=@question.id%>/answers/<%=@answer.id%>/upvote" class="upvote"><i class="fa fa-3x fa-caret-up vote-container-items anti-margin" id="Answer<%= @answer.id %>"></i></a>
+    <h4 class="vote-container-items vote-count" id="Answer<%= @answer.id %>"><%=@answer.votes.count%><h4>
+    <a href="/questions/<%=@question.id%>/answers/<%=@answer.id%>/downvote" class="downvote"><i class="fa fa-3x fa-caret-down vote-container-items" id="Answer<%= @answer.id %>"></i></a>
   </div>
+
+
   <div class="text-container">
     <h3><%= @answer.text %></h3>
   </div>
@@ -11,6 +13,7 @@
     <h4>answered <%=@answer.time_since_creation%> ago</h4><h4>
       <a href="/users/<%= @answer.user.id %>"><%=@answer.user.full_name%></a></h4>
   </div>
+
 <% @comment_type = "Answer" %>
 <% @all_comments_id = "answer-#{@answer.id}" %>
 <%= erb :"comment/_comment"%>

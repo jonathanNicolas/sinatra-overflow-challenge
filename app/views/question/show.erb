@@ -1,5 +1,5 @@
 <div class="container">
-  <h1><%= @question.title %></h1>
+  <h1 class="question-title"><%= @question.title %></h1>
   <% @comments = @question.comments %>
   <%= erb :"question/_question" %>
   <% @question_answers.each do |answer| %>
