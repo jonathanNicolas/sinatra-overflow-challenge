@@ -11,7 +11,7 @@
     <h4>answered <%=@answer.time_since_creation%> ago<br>
       <a href="/users/<%= @answer.user.id %>"><%=@answer.user.full_name%></a></h4>
   </div>
-
+<% @comment_type = "Answer" %>
 <%= erb :"comment/_comment"%>
-<h3 class="add-comment"><a href="#">add a comment<a></h3>
+<h3 class="add-comment"><a name="answer-add-comment" href="#">add a comment<a></h3>
 </div>
