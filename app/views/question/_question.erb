@@ -12,6 +12,7 @@
       <a href="/users/<%= @question.user.id %>"><%=@question_user.full_name%></a></h4>
   </div>
 <% @comment_type = "Question" %>
+<% @all_comments_id = "all-comments" %>
 <%= erb :"comment/_comment"%>
 <h3 class="add-comment-question"><a href="#" id="question-add-comment" >add a comment<a></h3>
 <h3 class="answers-count"><%= @question_answers.count %> Answers</h3>
