@@ -8,12 +8,12 @@
     <h3><%= @question.text %></h3>
   </div>
   <div class="created-by-container">
-    <h4>asked <%= @question.time_since_creation%> ago<br>
+    <h4>asked <%= @question.time_since_creation%> ago</h4><h4>
       <a href="/users/<%= @question.user.id %>"><%=@question_user.full_name%></a></h4>
   </div>
 <% @comment_type = "Question" %>
 <%= erb :"comment/_comment"%>
-<h3 class="add-comment-question"><a href="#" name="question-add-comment" >add a comment<a></h3>
+<h3 class="add-comment-question"><a href="#" id="question-add-comment" >add a comment<a></h3>
 <h3 class="answers-count"><%= @question_answers.count %> Answers</h3>
 </div>
 
