@@ -71,7 +71,11 @@ get '/questions/:question_id/:vote_type' do
       @question.save
     end
   end
+  if request.xhr?
+    {votes: @question.vote_total, id: params[:question_id], type: "#{@question.class}"}.to_json
+  else
   redirect "/questions/#{@question.id}"
+  end
 end
 
 get '/questions/:question_id/answers/:answer_id/:vote_type' do
@@ -87,5 +91,9 @@ get '/questions/:question_id/answers/:answer_id/:vote_type' do
       @answer.save
     end
   end
+   if request.xhr?
+    {votes: @answer.vote_total, id: params[:answer_id], type: "#{@answer.class}"}.to_json
+  else
   redirect "/questions/#{params[:question_id]}"
+  end
 end
