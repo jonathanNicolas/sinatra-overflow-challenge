@@ -1,7 +1,8 @@
-<% if @question %>
+<% if @question && (@comment_type == "Question") %>
   <% response_id_string = @question.id %>
   <% response_type_string = @question.class %>
-<% elsif @answer %>
+<% end %>
+<% if @answer && (@comment_type == "Answer") %>
   <% response_id_string = @answer.id %>
   <% response_type_string = @answer.class %>
 <% end %>
