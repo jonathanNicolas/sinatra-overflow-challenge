@@ -5,14 +5,15 @@
     <a href="/questions/<%=@question.id%>/downvote"><i class="fa fa-3x fa-caret-down vote-container-items"></i></a>
   </div>
   <div class="text-container">
-    <h3><%= @question.text[2..-3] %></h3>
+    <h3><%= @question.text %></h3>
   </div>
   <div class="created-by-container">
     <h4>asked <%= @question.time_since_creation%> ago</h4><h4>
       <a href="/users/<%= @question.user.id %>"><%=@question_user.full_name%></a></h4>
   </div>
+<% @comment_type = "Question" %>
 <%= erb :"comment/_comment"%>
-<h3 class="add-comment-question"><a href="#">add a comment<a></h3>
+<h3 class="add-comment-question"><a href="#" name="question-add-comment" >add a comment<a></h3>
 <h3 class="answers-count"><%= @question_answers.count %> Answers</h3>
 </div>
 
