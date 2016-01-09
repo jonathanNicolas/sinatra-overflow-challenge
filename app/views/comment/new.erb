@@ -9,9 +9,9 @@
 
 <div class="new-comment-container<%= "-question" if @comment_type == "Question" %>" style="display: none">
   <form id="question_comment" action="/comments/new" method="post">
-    <textarea name="text" cols="40" rows="2"></textarea>
+    <textarea id="question_textarea" name="text" cols="40" rows="2"></textarea>
     <input type="hidden" name="response_id" value="<%= response_id_string %>"></input>
     <input type="hidden" name="response_type" value="<%= response_type_string%>"></input>
-    <button name="submit_comment" class="submit">Submit Comment</button>
+    <button class="submit_comment" class="submit">Submit Comment</button>
   </form>
 </div>

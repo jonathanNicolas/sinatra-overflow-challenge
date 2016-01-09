@@ -1,6 +1,6 @@
 # route to show the index view
 get '/questions' do
-  @questions = Question.all
+  @questions = Question.order('created_at DESC')
   @num_ans = {}
   @questions.each do |question|
     @num_ans[question.id] = question.answers.count
