@@ -1,9 +1,10 @@
 <div class="question-container">
   <div class="vote-container">
-    <a href="/questions/<%=@question.id%>/upvote"><i class="fa fa-3x fa-caret-up vote-container-items anti-margin"></i></a>
-    <h4 class="vote-container-items vote-count"><%=@question.vote_total%><h4>
-    <a href="/questions/<%=@question.id%>/downvote"><i class="fa fa-3x fa-caret-down vote-container-items"></i></a>
+    <a href="/questions/<%=@question.id%>/upvote" class="upvote"><i class="fa fa-3x fa-caret-up vote-container-items anti-margin" id="Question<%=@question.id%>"></i></a>
+    <h4 class="vote-container-items vote-count" id="Question<%=@question.id%>"><%=@question.vote_total%><h4>
+    <a href="/questions/<%=@question.id%>/downvote" class="downvote"><i class="fa fa-3x fa-caret-down vote-container-items" id="Question<%=@question.id%>"></i></a>
   </div>
+
   <div class="text-container">
     <h3><%= @question.text %></h3>
   </div>
@@ -11,6 +12,7 @@
     <h4>asked <%= @question.time_since_creation%> ago<br>
       <a href="/users/<%= @question.user.id %>"><%=@question_user.full_name%></a></h4>
   </div>
+
 <% @comment_type = "Question" %>
 <%= erb :"comment/_comment"%>
 <h3 class="add-comment-question"><a href="#" name="question-add-comment" >add a comment<a></h3>
