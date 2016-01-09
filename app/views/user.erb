@@ -1,35 +1,37 @@
-<div class="container">
+<div class="container profile-container">
   <% if @logged_in_as && @logged_in_as.id == @viewing_user.id %>
     <h1>Hello, <%= @logged_in_as.first_name %>!</h1>
     <p>Here's the information we have for you:</p>
+    <div class="list-container">
     <ul>
-      <li>First name: <%= @logged_in_as.first_name %></li>
-      <li>Last name: <%= @logged_in_as.last_name %></li>
-      <li>Email address: <%= @logged_in_as.email %></li>
-      <li>Registered at: <%= @logged_in_as.created_at %></li>
-      <li>Updated at: <%= @logged_in_as.updated_at %></li>
+      <li><span class="color">First name.................</span><span class="indent"><%= @logged_in_as.first_name %></li>
+      <li><span class="color">Last name.................</span><span class="indent"><%= @logged_in_as.last_name %></li>
+      <li><span class="color">Email address...........</span><span class="indent"><%= @logged_in_as.email %></li>
+      <li><span class="color">Registered at............</span><span class="indent"><%= @logged_in_as.created_at %></li>
+      <li><span class="color">Updated at................</span><span class="indent"><%= @logged_in_as.updated_at %></li>
     </ul>
+    </div>
   <% else %>
     <h1><%= @viewing_user.full_name %>'s profile:</h1>
   <% end %>
     <h3>Questions:</h3>
     <ul>
     <% @viewing_user_questions.each do |question| %>
-      <li><a href="/questions/<%= question.id %>"><%= question.title %></a></li>
+      <li><a href="/questions/<%= question.id %>"><%= question.title %></a>  asked <%=question.time_since_creation%> ago</li>
     <% end %>
     </ul>
     <br>
     <h3>Answers:</h3>
     <ul>
     <% @viewing_user_answers.each do |answer| %>
-      <li><a href="/questions/<%= answer.question_id %>"><%= answer.text.slice(0...40) %>...</a></li>
+      <li><a href="/questions/<%= answer.question_id %>"><%= answer.text.slice(0...40) %>...</a> answered <%=answer.time_since_creation%> ago</li>
     <% end %>
     </ul>
     <br>
     <h3>Comments:</h3>
     <ul>
     <% @viewing_user_comments.each do |comment| %>
-      <li><a href="/questions/<%= comment.response_id %>"><%= comment.text.slice(0..40) %>...</a></li>
+      <li><a href="/questions/<%= comment.response_id %>"><%= comment.text.slice(0..40) %>...</a> commented <%=comment.time_since_creation%> ago</li>
     <% end %>
     </ul>
 </div>
