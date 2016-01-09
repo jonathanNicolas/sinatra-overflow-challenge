@@ -1,0 +1,5 @@
+<div class="comment-container">
+    <div class="comment-text-container">
+    <h3 class="comment-text"><%= @comment.text %> - <span class="comment-username"><a href="/users/<%= @comment.user.id %>"><%=@comment.user.full_name%></a>  </span><span class="comment-created-at"> <%= @comment.time_since_creation %> ago</span></h3>
+    </div>
+</div>

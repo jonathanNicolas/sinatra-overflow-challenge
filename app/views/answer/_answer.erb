@@ -15,6 +15,7 @@
   </div>
 
 <% @comment_type = "Answer" %>
+<% @all_comments_id = "answer-#{@answer.id}" %>
 <%= erb :"comment/_comment"%>
-<h3 class="add-comment"><a name="answer-add-comment" href="#">add a comment<a></h3>
+<h3 class="add-comment"><a class="answer-add-comment" name="<%= @answer.id %>" href="#">add a comment<a></h3>
 </div>

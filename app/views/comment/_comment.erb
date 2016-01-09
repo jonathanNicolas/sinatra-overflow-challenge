@@ -1,3 +1,4 @@
+<div id="<%= @all_comments_id %>">
 <%@comments.each do |comment|%>
   <div class="comment-container">
     <div class="comment-text-container">
@@ -5,6 +6,5 @@
     </div>
   </div>
 <%end%>
-<div class="comment-form">
-  <%= erb :"comment/new" %>
 </div>
+<%= erb :"comment/new" %>
