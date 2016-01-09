@@ -4,14 +4,15 @@
     <p>Here's the information we have for you:</p>
     <div class="list-container">
     <ul>
-      <li><span class="color">First name.................</span><span class="indent"><%= @logged_in_as.first_name %></li>
-      <li><span class="color">Last name.................</span><span class="indent"><%= @logged_in_as.last_name %></li>
-      <li><span class="color">Email address...........</span><span class="indent"><%= @logged_in_as.email %></li>
-      <li><span class="color">Registered at............</span><span class="indent"><%= @logged_in_as.created_at %></li>
-      <li><span class="color">Updated at................</span><span class="indent"><%= @logged_in_as.updated_at %></li>
+      <li><span class="color">First name</span><span class="indent"><%= @logged_in_as.first_name %></li>
+      <li><span class="color">Last name</span><span class="indent"><%= @logged_in_as.last_name %></li>
+      <li><span class="color">Email address</span><span class="indent"><%= @logged_in_as.email %></li>
+      <li><span class="color">Registered at</span><span class="indent"><%= @logged_in_as.created_at %></li>
+      <li><span class="color">Updated at</span><span class="indent"><%= @logged_in_as.updated_at %></li>
     </ul>
     </div>
   <% else %>
+  <div class="all-posts-container">
     <h1><%= @viewing_user.full_name %>'s profile:</h1>
   <% end %>
     <h3>Questions:</h3>
@@ -20,18 +21,17 @@
       <li><a href="/questions/<%= question.id %>"><%= question.title %></a>  asked <%=question.time_since_creation%> ago</li>
     <% end %>
     </ul>
-    <br>
     <h3>Answers:</h3>
     <ul>
     <% @viewing_user_answers.each do |answer| %>
       <li><a href="/questions/<%= answer.question_id %>"><%= answer.text.slice(0...40) %>...</a> answered <%=answer.time_since_creation%> ago</li>
     <% end %>
     </ul>
-    <br>
     <h3>Comments:</h3>
     <ul>
     <% @viewing_user_comments.each do |comment| %>
       <li><a href="/questions/<%= comment.response_id %>"><%= comment.text.slice(0..40) %>...</a> commented <%=comment.time_since_creation%> ago</li>
     <% end %>
     </ul>
+  </div>
 </div>
