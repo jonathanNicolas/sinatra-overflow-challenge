@@ -1,11 +1,11 @@
 <div class="container profile-container">
-  <center><img src="<%= @viewing_user.github_avatar_url %>" height="75px" title="GitHub avatar" style="border-radius: 50%"></center>
+  <center><img src="<%= @viewing_user.github_avatar_url %>" height="150px" title="GitHub avatar" style="border-radius: 50%"></center>
   <% if @logged_in_as && @logged_in_as.id == @viewing_user.id %>
-    <h1>Hello, <%= @logged_in_as.fullname %>!</h1>
+    <h1>Hello, <%= @logged_in_as.name %>!</h1>
     <p>Here's the information we have for you:</p>
     <div class="list-container">
     <ul>
-      <li><span class="color">Name</span><span class="indent"><%= @logged_in_as.fullname %></li>
+      <li><span class="color">Name</span><span class="indent"><%= @logged_in_as.name %></li>
       <li><span class="color">Email address</span><span class="indent"><%= @logged_in_as.email %></li>
       <li><span class="color">GitHub username</span><span class="indent"><%= @logged_in_as.github_username %></li>
       <li><span class="color">Registered at</span><span class="indent"><%= @logged_in_as.created_at %></li>
@@ -14,10 +14,10 @@
     </div>
   <% else %>
   <div class="all-posts-container">
-    <h1><%= @viewing_user.full_name %>'s profile:</h1>
+    <h1><%= @viewing_user.github_username %>'s profile:</h1>
   <% end %>
   <% if !@viewing_user_questions.empty? %>
-  <% p @viewing_user_questions %>
+  <% @viewing_user_questions %>
     <h3>Questions:</h3>
     <ul>
     <% @viewing_user_questions.each do |question| %>

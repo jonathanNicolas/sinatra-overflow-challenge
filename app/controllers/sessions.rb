@@ -1,14 +1,19 @@
 get '/login' do
+  p "referrer: #{session[:referrer]}"
   client = Octokit::Client.new
   github_login_url = client.authorize_url(CLIENT_ID, :scope => 'user:email')
   redirect github_login_url
 end
 
 get '/logout' do
+  session[:referrer] = request.referrer
+  p "referrer: #{session[:referrer]}"
   session.delete(:access_token)
   session.delete(:username)
   session.delete(:user_id)
-  redirect '/'
+  # redirect '/'
+  p "going back to #{session[:referrer]}"
+  redirect session[:referrer]
 end
 
 get '/callback' do
@@ -23,14 +28,16 @@ get '/callback' do
   user =  User.find_by_github_username(github_user_data.login)
   if user.nil?
     @github_username = github_user_data.login
-    @github_fullname = github_user_data.name
+    @github_name = github_user_data.name
     @github_email = github_user_data.private_emails.first
     @github_avatar_url = github_user_data.avatar_url
     erb :"user/new"
   else
     session[:access_token] = access_token
     session[:username] = github_user_data.login
-    redirect "/users/#{github_user_data.login}"
+    # redirect "/users/#{github_user_data.login}"
+    p "going back to #{session[:referrer]}"
+    redirect session[:referrer]
   end
 end
 

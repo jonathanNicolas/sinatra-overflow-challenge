@@ -10,7 +10,7 @@
   </div>
   <div class="created-by-container">
     <h4>asked <%= @question.time_since_creation%> ago</h4><h4>
-      <a href="/users/<%= @question.user.id %>"><%=@question_user.full_name%></a></h4>
+      <a href="/users/<%= @question.user.github_username %>"><img src="<%= @question.user.github_avatar_url %>" height="20px" style="border-radius: 50%; vertical-align: middle""> <%=@question_user.name%></a></h4>
   </div>
 
 <% @comment_type = "Question" %>

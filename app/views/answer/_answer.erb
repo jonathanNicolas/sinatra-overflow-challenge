@@ -11,7 +11,7 @@
   </div>
   <div class="created-by-container answer-created-by-container">
     <h4>answered <%=@answer.time_since_creation%> ago</h4><h4>
-      <a href="/users/<%= @answer.user.id %>"><%=@answer.user.full_name%></a></h4>
+      <a href="/users/<%= @answer.user.github_username %>"><img src="<%= @answer.user.github_avatar_url %>" height="20px" style="border-radius: 50%; vertical-align: middle""> <%=@answer.user.name%></a></h4>
   </div>
 
 <% @comment_type = "Answer" %>

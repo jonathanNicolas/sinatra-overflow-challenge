@@ -13,7 +13,7 @@
       </div>
   </div>
   <h2><a href="/questions/<%= question.id %>"><%= question.title %></a></h2>
-  <h3 class="created_by_tag"><%= question.time_since_creation %> ago by <a href="/users/<%= @user_ids[question.id] %>"><%= @usernames[question.id] %></a></h3>
+  <h3 class="created_by_tag"><%= question.time_since_creation %> ago by <a href="/users/<%= @usernames[question.id] %>"><%= @names[question.id] %></a></h3>
 </div>
 <% end %>
 </div>
