@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="new-user">
+    <br>
+    <center><img src="<%= @github_avatar_url %>" height="75px" title="GitHub avatar" style="border-radius: 50%"></center>
+    <center><h3>Hello, <%= @github_username %>!</h3>
+    <p>It looks like this is your first time here. Please register.</p></center>
+    <br>
+  </div>
+  <form class="form-horizontal" action="/users/new" method="POST">
+  <fieldset>
+  <!-- Form Name -->
+  <legend>New User Registration</legend>
+  <br>
+  <% if @errors %>
+    <div class="errors-wrapper">
+      <span>Registration failed:</span>
+      <ul class="errors">
+        <% @errors.each do |error| %>
+          <li class="error"><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="fullname">Name</label>
+    <div class="col-md-4">
+    <input id="fullname" name="fullasdfname" type="text" value="<%= @github_fullname %>" class="form-control input-md" required="">
+    </div>
+  </div>
+  <br>
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="github_username">GitHub username</label>
+    <div class="col-md-4">
+    <input id="github_username" name="github_username" type="text" value="<%= @github_username %>" class="form-control input-md" readonly>
+    <input id="github_avatar_url" name="github_avatar_url" type="hidden" value="<%= @github_avatar_url %>" class="form-control input-md" readonly>
+    </div>
+  </div>
+  <br>
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="email">Email Address</label>
+    <div class="col-md-4">
+    <input id="email" name="email" type="email" value="<%= @github_email  %>" class="form-control input-md" required="">
+    </div>
+  </div>
+  <!-- Button -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="register"></label>
+    <div class="col-md-4">
+      <button id="register" name="register" class="btn btn-primary">Register</button>
+    </div>
+  </div>
+  </fieldset>
+  </form>
+</div>

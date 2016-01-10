@@ -21,7 +21,7 @@ get '/questions/new' do
   if session[:user_id]
     erb :"question/new"
   else
-      @error = "You must login to post a question."
+      @errors = "You must login to post a question."
     erb :login
   end
 end

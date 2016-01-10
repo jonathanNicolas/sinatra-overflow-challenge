@@ -1,12 +1,13 @@
 <div class="container profile-container">
+  <center><img src="<%= @viewing_user.github_avatar_url %>" height="75px" title="GitHub avatar" style="border-radius: 50%"></center>
   <% if @logged_in_as && @logged_in_as.id == @viewing_user.id %>
-    <h1>Hello, <%= @logged_in_as.first_name %>!</h1>
+    <h1>Hello, <%= @logged_in_as.fullname %>!</h1>
     <p>Here's the information we have for you:</p>
     <div class="list-container">
     <ul>
-      <li><span class="color">First name</span><span class="indent"><%= @logged_in_as.first_name %></li>
-      <li><span class="color">Last name</span><span class="indent"><%= @logged_in_as.last_name %></li>
+      <li><span class="color">Name</span><span class="indent"><%= @logged_in_as.fullname %></li>
       <li><span class="color">Email address</span><span class="indent"><%= @logged_in_as.email %></li>
+      <li><span class="color">GitHub username</span><span class="indent"><%= @logged_in_as.github_username %></li>
       <li><span class="color">Registered at</span><span class="indent"><%= @logged_in_as.created_at %></li>
       <li><span class="color">Updated at</span><span class="indent"><%= @logged_in_as.updated_at %></li>
     </ul>

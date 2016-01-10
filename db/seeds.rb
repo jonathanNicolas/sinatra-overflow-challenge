@@ -1,11 +1,14 @@
 require 'faker'
 
+# create nil's test user
+User.create!(fullname: "Test User", email: "test@test.com", github_username: "nilthacker", github_avatar_url: 'https://avatars.githubusercontent.com/u/7378950?v=3')
+
 # create 20 dummy users
 users = 20.times.map do
-  User.create!( :first_name => Faker::Name.first_name,
-                :last_name  => Faker::Name.last_name,
+  User.create!( :fullname => Faker::Name.name,
                 :email      => Faker::Internet.email,
-                :password   => BCrypt::Password.create("ham") )
+                :github_username => Faker::Internet.user_name,
+                :github_avatar_url => 'https://github.com/identicons/jasonlong.png' )
 end
 
 # create 1 question for each user
