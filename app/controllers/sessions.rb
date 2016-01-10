@@ -1,7 +1,8 @@
 get '/login' do
-  client = Octokit::Client.new
-  github_login_url = client.authorize_url(CLIENT_ID, :scope => 'user:email')
-  redirect github_login_url
+  # client = Octokit::Client.new
+  # github_login_url = client.authorize_url(CLIENT_ID, :scope => 'user:email')
+  # redirect github_login_url
+  redirect 'https://github.com/login/oauth/authorize?client_id=5a23d11f949dfe05b06e&scope=user:email'
 end
 
 get '/logout' do

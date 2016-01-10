@@ -21,7 +21,6 @@ get '/questions/new' do
   if authenticated?
     erb :"question/new"
   else
-      session[:error] = "You must be logged in to post a question."
     redirect '/login'
   end
 end
