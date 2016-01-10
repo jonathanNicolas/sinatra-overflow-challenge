@@ -54,11 +54,8 @@ $(document).ready(function () {
       })
 
       ajaxRequest.done(function(successResponse) {
-        formInfo.parent().parent().append(successResponse);
-        // formInfo.parent().parent('.all-comments').css("background-color", "yellow");
-        // $('.new-comment-container-question').hide();
+        formInfo.parent().append(successResponse);
         formInfo.hide();
-        // $("#question_comment")[0].reset();
       });
 
       ajaxRequest.fail(function(failResponse) {

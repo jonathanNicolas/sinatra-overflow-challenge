@@ -6,15 +6,15 @@
   <!-- Form Name -->
   <legend>User Login</legend>
   <br>
-  <% if @error %>
+  <% if @errors %>
     <div class="errors-wrapper">
       <span>Login failed:</span>
       <ul class="errors">
-        <li class="error"><%= @error %></li>
+        <li class="error"><%= @errors %></li>
       </ul>
     </div>
-  <% end %>
   <br>
+  <% end %>
   <!-- Text input-->
   <div class="form-group">
     <label class="col-md-4 control-label" for="email">Email Address</label>
@@ -30,7 +30,6 @@
       <input id="password_plaintext" name="password_plaintext" type="password" placeholder="" class="form-control input-md" required="">
     </div>
   </div>
-  <br>
   <!-- Button -->
   <div class="form-group">
     <label class="col-md-4 control-label" for="register"></label>

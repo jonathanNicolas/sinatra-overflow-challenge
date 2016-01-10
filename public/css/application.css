@@ -253,9 +253,9 @@ h3.created_by_tag a {
 
 /*END OF QUESTION CSS*/
 /*ANSWER CSS*/
-.fa:active {
+/*.fa:active {
   color:orange;
-}
+}*/
 
 .answer-container {
   padding-top: 20px;
