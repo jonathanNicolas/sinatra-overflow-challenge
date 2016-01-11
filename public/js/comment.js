@@ -21,14 +21,16 @@ $(document).ready(function () {
       })
 
       ajaxRequest.done(function(successResponse) {
-        $('.all-comments').append(successResponse);
         $('.new-comment-container-question').hide();
         $("#question_comment")[0].reset();
+        $('.all-comments').append(successResponse);
       });
 
       ajaxRequest.fail(function(failResponse) {
-        alert("Something broke... Check the log.");
         console.log(failResponse);
+        $('.new-comment-container-question').hide();
+        $("#question_comment")[0].reset();
+        alert("You must be logged in to post a comment.")
       });
     });
 
@@ -59,8 +61,9 @@ $(document).ready(function () {
       });
 
       ajaxRequest.fail(function(failResponse) {
-        alert("Something broke... Check the log.");
         console.log(failResponse);
+        formInfo.hide();
+        alert("You must be logged in to post a comment.")
       });
     });
 

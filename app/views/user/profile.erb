@@ -44,7 +44,9 @@
       <li>This user has not yet posted any comments.</li>
       <% end %>
     <% @viewing_user_comments.each do |comment| %>
-      <li><a href="/questions/<%= comment.response_id %>"><%= comment.text.slice(0..40) %>...</a> commented <%=comment.time_since_creation%> ago</li>
+    <% question_id = comment.response_id %>
+    <% question_id = Answer.find(comment.response_id).question_id if comment.response_type == "Answer" %>
+      <li><a href="/questions/<%= question_id %>"><%= comment.text.slice(0..40) %>...</a> commented <%=comment.time_since_creation%> ago</li>
     <% end %>
     </ul>
   </div>
