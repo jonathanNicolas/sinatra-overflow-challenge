@@ -1,4 +1,5 @@
 get '/login' do
+  session[:referrer] = request.referrer
   # client = Octokit::Client.new
   # github_login_url = client.authorize_url(CLIENT_ID, :scope => 'user:email')
   # redirect github_login_url
