@@ -18,3 +18,5 @@ gem 'bcrypt'
 gem 'shotgun'
 
 gem "octokit", "~> 4.0"
+
+gem "rspec"
