@@ -11,9 +11,9 @@
 
 <div class="new-comment-container<%= "-question" if @comment_type == "Question" %>" style="display: none" name="<%= @answer.id if @comment_type == "Answer" %>">
   <form id="<%= form_id %>" action="/comments/new" method="post">
-    <textarea id="question_textarea" name="text" cols="40" rows="2"></textarea>
+    <textarea class="comment-textarea" id="question_textarea" name="text" cols="40" rows="2"></textarea>
     <input type="hidden" name="response_id" value="<%= response_id_string %>"></input>
     <input type="hidden" name="response_type" value="<%= response_type_string%>"></input>
-    <button class="submit_comment" class="submit">Submit Comment</button>
+    <button class="submit_comment pure-button" class="submit">Submit Comment</button>
   </form>
 </div>
