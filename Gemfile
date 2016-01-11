@@ -20,3 +20,4 @@ gem 'shotgun'
 gem "octokit", "~> 4.0"
 
 gem "rspec"
+gem "faker"
