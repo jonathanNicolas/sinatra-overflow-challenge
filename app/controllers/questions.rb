@@ -44,8 +44,8 @@ end
 
 post '/questions/:question_id/answers/new' do
   answer_user = User.find_by_github_username(session[:username])
-  question = Question.find(params[:question_id])
-  Answer.create(user_id: answer_user.id, question: question, text: params[:text])
+  @question = Question.find(params[:question_id])
+  Answer.create(user_id: answer_user.id, question: @question, text: params[:text])
   redirect "/questions/#{params[:question_id]}"
 end
 
