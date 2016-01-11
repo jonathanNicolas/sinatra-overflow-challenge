@@ -15,10 +15,8 @@ end
 
 get '/callback' do
   session_code = request.env['rack.request.query_hash']['code']
-
   result = Octokit.exchange_code_for_token(session_code, CLIENT_ID, CLIENT_SECRET)
   access_token = result[:access_token]
-
   github_user_data = get_github_user_data(access_token)
 
   # if there's a user in the db with the currently logged in github username, show the registration form with the github info prefilled in the registration form
