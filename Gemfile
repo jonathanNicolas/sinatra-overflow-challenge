@@ -18,8 +18,3 @@ gem 'bcrypt'
 gem 'shotgun'
 
 gem "octokit", "~> 4.0"
-
-group :development, :test do
-  gem 'faker'
-  gem 'rspec'
-end
