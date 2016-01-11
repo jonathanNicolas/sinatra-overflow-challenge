@@ -6,6 +6,8 @@ $(document).ready(function () {
       $('.new-comment-container-question').show();
     });
 
+
+
   // question form submit button clicked
   $('.container').on('submit', '#question_comment', function(event){
       "use strict"

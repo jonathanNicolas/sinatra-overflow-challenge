@@ -302,6 +302,22 @@ h3.created_by_tag a {
   color: rgb(153, 153, 153)
 }
 
+.new-comment-container-question {
+  padding-top: 10px;
+  padding-left: 80px;
+  padding-bottom: 10px;
+}
+
+.comment-textarea {
+  width: 360px;
+  resize: none;
+  outline: none;
+}
+
+.submit_comment {
+ margin-top: 8px;
+}
+
 
 /*END OF COMMENT CSS*/
 
@@ -382,7 +398,7 @@ header nav a:hover {
 .profile-container div.list-container li {
   list-style-type: none;
   padding-bottom: 6px;
-  text-align: right;
+  text-align: left;
 }
 .profile-container div.list-container ul {
   padding-bottom: 15px;
@@ -390,13 +406,20 @@ header nav a:hover {
 
 .profile-container li span.color {
   color: rgb(0, 119, 204);
-  position:relative;
-  right: 650px;
+  position: relative;
+  left: 0px;
+}
+
+
+
+div.list-container ul li span.indent {
+  left:10px;
 }
 
 .profile-container li span.indent {
-  position: absolute;
-  left: 255px;
+  position: relative;
+  /*display: block;*/
+
 }
 
 div.all-posts-container {
