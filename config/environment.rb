@@ -23,7 +23,6 @@ require "sinatra/reloader" if development?
 require 'erb'
 require 'json'
 require 'octokit'
-require 'erubis'
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
@@ -40,6 +39,3 @@ require APP_ROOT.join('config', 'database')
 # create app constants for the github oauth environment variable keys
 CLIENT_ID = ENV['GH_BASIC_CLIENT_ID']
 CLIENT_SECRET = ENV['GH_BASIC_SECRET_ID']
-
-# set up erb to automagically escape html stuff
-set :erb, :escape_html => true
